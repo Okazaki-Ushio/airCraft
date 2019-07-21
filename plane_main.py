@@ -26,11 +26,8 @@ class PlaneGame(object):
             pygame.display.update()
 
     def __check_collide(self):
-        enemy_list = pygame.sprite.groupcollide(self.enemy_group, self.bullet_group, True, True)
+        pygame.sprite.groupcollide(self.enemy_group, self.bullet_group, True, True)
         # TODO
-        for enemy in enemy_list:
-            print(enemy)
-            enemy.state += 1
         over_list = pygame.sprite.spritecollide(self.hero, self.enemy_group, True)
         if len(over_list) > 0:
             self.__game_over__()
